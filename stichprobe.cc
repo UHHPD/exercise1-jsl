@@ -5,7 +5,7 @@
 double mean;
 double variance;
 
-int meansum(){
+void meansum(){
   std::ifstream fin("datensumme.txt");
   double a;
   for (int N=1; N<235; N++) {
@@ -17,7 +17,7 @@ int meansum(){
   std::cout << "mean = " << mean << std::endl;
 }
 
-int var(double mean){
+void var(double mean){
   std::ifstream fin("datensumme.txt");
   double a;
   for (int N=1; N<235; N++) {
@@ -29,7 +29,7 @@ int var(double mean){
   std::cout << "variance = " << variance << std::endl;
 }
 
-int dev(double variance){
+void dev(double variance){
   double deviation;
   deviation = sqrt(variance);
   std::cout << "standard deviation = " << deviation << std::endl;
