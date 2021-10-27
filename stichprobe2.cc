@@ -120,6 +120,7 @@ int meansum(){
     if (N % 9 == 0){
       mean = mean/9;
       fout_m << mean << std::endl;
+      mean = 0;
     }
     else{
       continue;
@@ -129,16 +130,20 @@ int meansum(){
 
 }
 
-int var(double mean){
+int var(){
   std::ifstream fin("datensumme.txt");
+  std::ifstream fin_m("mittelwerte.txt");
   std::ofstream fout_v("varianzen.txt");
-  double a;
+  double a,mean_m;
+  fin_m >> mean_m ;
   for (int N=1; N<235; N++) {
     fin >> a ;
-    variance += pow((a-mean),2);
+    variance += pow((a-mean_m),2);
     if (N % 9 == 0){
       variance = variance/9;
       fout_v << variance << std::endl;
+      variance = 0;
+      fin_m >> mean_m ;
     }
     else{
       continue;
@@ -148,11 +153,13 @@ int var(double mean){
 
 }
 
+/*
 int dev(double variance){
   double deviation;
   deviation = sqrt(variance);
   std::cout << "standard deviation = " << deviation << std::endl;
 }
+*/
 
 int mean3(){
   std::ifstream fin_m("mittelwerte.txt");
@@ -206,8 +213,8 @@ int bessel_dev(double bessel_variance){
 
 int main(){
   meansum();
-  var(mean);
-  dev(variance);
+  var();
+  //dev(variance);
   mean3();
 
   bessel_meansum();
