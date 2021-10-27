@@ -110,7 +110,7 @@ int main() {
 double mean;
 double variance;
 
-int meansum(){
+void meansum(){
   std::ifstream fin("datensumme.txt");
   std::ofstream fout_m("mittelwerte.txt");
   double a;
@@ -130,7 +130,7 @@ int meansum(){
 
 }
 
-int var(){
+void var(){
   std::ifstream fin("datensumme.txt");
   std::ifstream fin_m("mittelwerte.txt");
   std::ofstream fout_v("varianzen.txt");
@@ -161,7 +161,7 @@ int dev(double variance){
 }
 */
 
-int mean3(){
+void mean3(){
   std::ifstream fin_m("mittelwerte.txt");
   std::ifstream fin_v("varianzen.txt");
   double a,b,mean_m,mean_v;
@@ -181,7 +181,7 @@ int mean3(){
 double bessel_mean;
 double bessel_variance;
 
-int bessel_meansum(){
+void bessel_meansum(){
   std::ifstream fin("datensumme.txt");
   double a;
   for (int N=1; N<235; N++) {
@@ -193,7 +193,7 @@ int bessel_meansum(){
   std::cout << "mean with Bessel's correction = " << bessel_mean << std::endl;
 }
 
-int bessel_var(double bessel_mean){
+void bessel_var(double bessel_mean){
   std::ifstream fin("datensumme.txt");
   double a;
   for (int N=1; N<235; N++) {
@@ -205,7 +205,7 @@ int bessel_var(double bessel_mean){
   std::cout << "variance with Bessel's correction = " << bessel_variance << std::endl;
 }
 
-int bessel_dev(double bessel_variance){
+void bessel_dev(double bessel_variance){
   double bessel_deviation;
   bessel_deviation = sqrt(bessel_variance);
   std::cout << "standard deviation with Bessel's Correction = " << bessel_deviation << std::endl;
